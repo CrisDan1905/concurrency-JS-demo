@@ -1,0 +1,155 @@
+.concurrency {
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(7, 12.6vw);
+  grid-template-rows: repeat(5, 16.7vh);
+  grid-template-areas:
+    "stack stack heap heap apis apis apis"
+    "stack stack heap heap apis apis apis"
+    "stack stack heap heap loop loop loop"
+    "queue queue queue queue queue queue queue"
+    "job job job job job job job";
+
+  .concurrency__stack {
+    background: var(--main-color);
+    padding: .5rem;
+    grid-area: stack;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .stack__frame {
+      width: 100%;
+      height: 5rem;
+      background: var(--secondary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      padding: 0;
+      color: white;
+    }
+  }
+
+  .concurrency__heap {
+    border: solid .3rem var(--third-color);
+    grid-area: heap;
+
+    .heap__object {
+      height: 4rem;
+      width: 4rem;
+      position: absolute;
+    }
+
+    .heap__object:nth-child(1) {
+      position: absolute;
+      background: black;
+      transform: translate(1rem, 2rem);
+    }
+
+    .heap__object:nth-child(2) {
+      position: absolute;
+      background: black;
+      transform: translate(7rem, 5rem);
+    }
+
+    .heap__object:nth-child(3) {
+      position: absolute;
+      background: var(--secondary-color);
+      transform: translate(6rem, 11rem);
+    }
+
+    .heap__object:nth-child(4) {
+      position: absolute;
+      background: var(--third-color);
+      transform: translate(2rem, 16rem);
+    }
+
+    .heap__object:nth-child(5) {
+      position: absolute;
+      background: var(--third-color);
+      transform: translate(11rem, 17rem);
+    }
+  }
+
+  .concurrency__apis {
+    background: var(--fourth-color);
+    grid-area: apis;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .apis__element {
+      margin: .5rem 0;
+      width: 34%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      text-align: center;
+      border-radius: .5rem;
+      height: 14vh;
+    }
+  }
+
+  .concurrency__loop {
+    grid-area: loop;
+    display: flex;
+    align-items: center;
+
+    .loop__arrow {
+      img {
+        height: 14vh;
+      }
+    }
+
+    .loop__text {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .concurrency__queue {
+    grid-area: queue;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .queue__container {
+      position: relative;
+      background: var(--secondary-color);
+      width: 80%;
+      height: 100%;
+    }
+
+    .queue__text {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .concurrency__job {
+    grid-area: job;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .job__container {
+      position: relative;
+      background: var(--third-color);
+      width: 80%;
+      height: 100%;
+    }
+
+    .job__text {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+  }
+}
