@@ -1,0 +1,159 @@
+.concurrency {
+
+  .concurrency__stack {
+
+    .stack__frame {
+      animation: stackElement 600ms ease-in-out 1 forwards;
+    }
+
+    .stack__frame.removing {
+      animation: removeElement 600ms ease-in-out 1 forwards;
+    }
+
+  }
+
+  .concurrency__apis {
+
+    .apis__element#time-out, .apis__element#promise {
+      svg {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--main-color);
+        transition: all 500ms;
+
+        circle {
+          stroke-dasharray: 113px;
+          stroke-dashoffset: 0px;
+          stroke-linecap: round;
+          stroke-width: .5rem;
+          stroke: white;
+          fill: none;
+          transform: translate(35%, 25%);
+        }
+      }
+
+      svg.active {
+        opacity: 1;
+
+        circle {
+          animation: countdown 5s linear 1 forwards;
+        }
+      }
+    }
+  }
+
+  .concurrency__loop {
+    grid-area: loop;
+    display: flex;
+    align-items: center;
+
+    .loop__arrow {
+      img {
+        animation: loopArrow 2s linear infinite forwards;
+      }
+    }
+
+    .loop__text {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+  }
+
+  .concurrency__queue {
+
+    .queue__container {
+      .queue__element {
+        animation: queueElement 600ms ease-in-out 1 forwards;
+      }
+
+      .queue__element.removing {
+        animation: removeQueueElement 600ms ease-in-out 1 forwards;
+      }
+    }
+  }
+
+  .concurrency__job {
+
+    .job__container {
+      .job__element {
+        animation: queueElement 600ms ease-in-out 1 forwards;
+      }
+
+      .job__element.removing {
+        animation: removeQueueElement 600ms ease-in-out 1 forwards;
+      }
+    }
+
+    .job__text {
+      font-size: 3rem;
+      margin-left: 2rem;
+    }
+  }
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+
+@keyframes queueElement {
+  from {
+    opacity: 0;
+    transform: translate(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes removeQueueElement {
+  from {
+    opacity: 1;
+    transform: translate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(2rem);
+  }
+}
+
+@keyframes loopArrow {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes stackElement {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes removeElement {
+  from {
+    opacity: 1;
+    transform: translate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}

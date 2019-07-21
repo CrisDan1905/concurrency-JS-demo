@@ -1,6 +1,8 @@
-<div class="concurrency">
-  <div class="concurrency__stack stack">
-    <div class="stack__frame"><span>Function a()</span></div>
+<div class="concurrency" (click)="nextStep()">
+  <div class="concurrency__stack stack" #stackContainer>
+    <div class="stack__frame" *ngFor="let frame of stackList">
+      <span>{{ frame.functionName }}</span>
+    </div>
   </div>
   <div class="concurrency__heap heap">
     <div class="heap__object"></div>
@@ -11,8 +13,18 @@
   </div>
   <div class="concurrency__apis apis">
     <div class="apis__element">Event Listener</div>
-    <div class="apis__element">Promise</div>
-    <div class="apis__element">SetTimeOut</div>
+    <div class="apis__element" id="promise">
+      Promise
+      <svg #promiseCounter>
+        <circle r="18" cx="20" cy="20"></circle>
+      </svg>
+    </div>
+    <div class="apis__element" id="time-out">
+      SetTimeOut
+      <svg #timeOutCounter>
+        <circle r="18" cx="20" cy="20"></circle>
+      </svg>
+    </div>
     <div class="apis__element">Storage</div>
   </div>
   <div class="concurrency__loop loop">
@@ -22,11 +34,19 @@
     <div class="loop__text">Event Loop</div>
   </div>
   <div class="concurrency__queue queue">
-    <div class="queue__container"></div>
+    <div class="queue__container" #queueContainer>
+      <div class="queue__element" *ngFor="let queueElement of queueList">
+        {{ queueElement.functionName }}
+      </div>
+    </div>
     <div class="queue__text">Queue</div>
   </div>
   <div class="concurrency__job">
-    <div class="job__container"></div>
+    <div class="job__container" #jobContainer>
+      <div class="job__element" *ngFor="let jobQueueElement of jobQueueList">
+        {{ jobQueueElement.functionName }}
+      </div>
+    </div>
     <div class="job__text">JOB Queue</div>
   </div>
 </div>

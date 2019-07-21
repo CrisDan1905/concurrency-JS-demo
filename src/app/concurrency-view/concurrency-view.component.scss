@@ -32,6 +32,7 @@
       font-size: 2rem;
       padding: 0;
       color: white;
+      margin-top: .5rem;
     }
   }
 
@@ -85,6 +86,7 @@
     align-items: center;
 
     .apis__element {
+      position: relative;
       margin: .5rem 0;
       width: 34%;
       background: white;
@@ -95,6 +97,10 @@
       text-align: center;
       border-radius: .5rem;
       height: 14vh;
+
+      svg {
+        border-radius: .5rem;
+      }
     }
   }
 
@@ -126,6 +132,21 @@
       background: var(--secondary-color);
       width: 80%;
       height: 100%;
+      display: flex;
+      align-items: center;
+      padding: .4rem;
+
+      .queue__element {
+        width: 20%;
+        background: var(--main-color);
+        height: 100%;
+        border-radius: .5rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+      }
     }
 
     .queue__text {
@@ -145,6 +166,21 @@
       background: var(--third-color);
       width: 80%;
       height: 100%;
+      display: flex;
+      align-items: center;
+      padding: .4rem;
+
+      .job__element {
+        width: 20%;
+        background: var(--main-color);
+        height: 100%;
+        border-radius: .5rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+      }
     }
 
     .job__text {
